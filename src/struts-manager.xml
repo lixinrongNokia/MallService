@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="adminManager" extends="default">
+        <!-- 后台管理员登录action -->
+        <action name="managerLogin.*" class="adminAction" method="userLogin">
+            <result name="success">/WEB-INF/page/login-success.jsp</result>
+            <result name="input">login.jsp</result>
+            <result name="error">login.jsp</result>
+        </action>
+        <action name="main.*">
+            <result>/WEB-INF/page/main.jsp</result>
+        </action>
+        <!-- 后台注销用户action -->
+        <action name="logout.*" class="adminAction" method="userExit">
+            <result name="success">login.jsp</result>
+        </action>
+        <!-- 分页查询所有web用户action -->
+        <action name="allUser.*" class="userAction" method="viewUserAll">
+            <result name="success">/WEB-INF/page/index.jsp</result>
+        </action>
+
+        <!-- 根据用户id查看身形用户数据 -->
+        <action name="userdataaction.*" class="userAction" method="userdetail">
+            <result name="success">/WEB-INF/page/userdetail.jsp</result>
+            <result name="error">/WEB-INF/page/userdetail.jsp</result>
+        </action>
+        <!-- 后台用户管理 -->
+        <action name="permissionManage.*" class="adminAction" method="queryAdmins">
+            <result name="success">/WEB-INF/page/adminmanager.jsp</result>
+        </action>
+        <!--权限组列表视图-->
+        <action name="privilegegroupView.*" class="adminAction" method="privilegegroupView">
+            <result name="success">/WEB-INF/page/privilege/privilegegrouplist.jsp</result>
+        </action>
+        <!--添加权限组视图-->
+        <action name="addprivilegegroupView.*" class="adminAction" method="addPrivilegegroupView">
+            <result name="success">/WEB-INF/page/privilege/addprivilegegroup.jsp</result>
+        </action>
+        <!--添加权限组方法-->
+        <action name="addprivilegegroup.*" class="adminAction" method="addPrivilegegroup">
+            <result type="redirectAction" name="success">
+                <param name="actionName">privilegegroupView.do</param>
+            </result>
+        </action>
+        <!--修改权限组视图-->
+        <action name="editPrivilegeGroupView.*" class="adminAction" method="editPrivilegeGroupView">
+            <result name="success">/WEB-INF/page/privilege/editprivilegegroup.jsp</result>
+        </action>
+        <!--修改权限组方法-->
+        <action name="editPrivilegeGroup.*" class="adminAction" method="updatePrivilegeGroup">
+            <result type="redirectAction" name="success">
+                <param name="actionName">privilegegroupView.do</param>
+            </result>
+            <result type="redirectAction" name="error">
+                <param name="actionName">editPrivilegeGroupView.do</param>
+                <param name="privilegeGroup.groupid">${privilegeGroupId}</param>
+            </result>
+        </action>
+        <!--删除权限组方法-->
+        <action name="delPrivilegeGroup.*" class="adminAction" method="delPrivilegeGroup">
+            <result type="redirectAction" name="success">
+                <param name="actionName">privilegegroupView.do</param>
+            </result>
+        </action>
+        <!-- 后台添加管理员页面 -->
+        <action name="addManager.*">
+            <result>/WEB-INF/page/addManager.jsp</result>
+        </action>
+        <!-- 启用管理员方法-->
+        <action name="unlockingManager.*" class="adminAction" method="unlockingManager">
+            <result name="success" type="redirectAction">permissionManage.do</result>
+        </action>
+        <!-- 禁用管理员方法-->
+        <action name="lockingManager.*" class="adminAction" method="lockingManager">
+            <result name="success" type="redirectAction">permissionManage.do</result>
+        </action>
+        <!--添加管理员方法-->
+        <action name="addManageraction.*" class="adminAction" method="addManager">
+            <result name="success" type="redirectAction">permissionManage.do</result>
+            <result name="error">/WEB-INF/page/addManager.jsp</result>
+        </action>
+        <!-- 跳转修改管理员权限页面 -->
+        <action name="privilege2ManagerView.*" class="adminAction" method="privilege2ManagerView">
+            <result name="success">/WEB-INF/page/privilege/privilege2ManagerView.jsp</result>
+        </action>
+        <!-- 修改管理员权限方法-->
+        <action name="privilege2Manager.*" class="adminAction" method="privilege2Manager">
+            <result name="success" type="redirectAction">permissionManage.do</result>
+            <result name="error">/WEB-INF/page/privilege/privilege2ManagerView.jsp</result>
+        </action>
+        <!-- 跳转修改管理员信息视图-->
+        <action name="editManagerView.*" class="adminAction" method="editManagerView">
+            <result>/WEB-INF/page/editManager.jsp</result>
+        </action>
+        <!-- 修改管理员信息方法-->
+        <action name="editManager.*" class="adminAction" method="editManager">
+            <result name="success" type="redirectAction">permissionManage.do</result>
+            <result name="error">/WEB-INF/page/editManager.jsp</result>
+        </action>
+        <!-- 客户端更新action -->
+        <action name="apk_uploadFile.*" class="appVersionManager" method="uploadFile">
+            <result name="success">/WEB-INF/page/deployment.jsp</result>
+            <result name="error">/WEB-INF/page/deployment.jsp</result>
+        </action>
+
+        <action name="viewAPPManager.*">
+            <result>/WEB-INF/page/deployment.jsp</result>
+        </action>
+
+        <!-- 对分享操作action -->
+        <action name="action_*.*" class="shareAction" method="{1}">
+            <result name="success">/WEB-INF/page/showShare.jsp</result>
+            <result name="error">/WEB-INF/page/showShare.jsp</result>
+        </action>
+        <action name="delshare.*" class="shareAction" method="delShare">
+            <result name="success" type="redirectAction">action_showShare?node=0</result>
+            <result name="error">/WEB-INF/page/showShare.jsp</result>
+        </action>
+        <!-- 对评论操作action -->
+        <action name="comm_*.*" class="commAction" method="{1}">
+            <result name="success">/WEB-INF/page/showComm.jsp</result>
+        </action>
+
+        <!-- 已经移除百度推送 -->
+        <action name="pushmsg.*">
+            <result name="success">/WEB-INF/page/pushmsg.jsp</result>
+        </action>
+
+        <!-- 发送邮件 -->
+        <action name="sendemailaction.*" class="userAction" method="welcomeemail">
+        </action>
+
+        <!-- >>>>商品管理开始<<<<<<< -->
+        <!--后台添加品牌-->
+        <action name="launchbrand.*" class="brandAction">
+            <result type="redirectAction" name="success">
+                <param name="actionName">showGoods.do</param>
+            </result>
+            <result name="error">/WEB-INF/page/launchBrand.jsp</result>
+        </action>
+
+        <!-- 后台添加商品action -->
+        <action name="launchgood.*" class="goodsAction" method="launchGood">
+            <interceptor-ref name="fileUpload">
+                <!-- 配置允许上传的文件类型 -->
+                <param name="allowedTypes">
+                    image/bmp,image/png,image/gif,image/jpeg,image/jpg
+                </param>
+            </interceptor-ref>
+            <interceptor-ref name="defualtSecurityStackWithAuthentication"/>
+            <result type="redirectAction" name="success">
+                <param name="actionName">showGoods.do</param>
+            </result>
+            <result name="error">/WEB-INF/page/launchgoods.jsp</result>
+        </action>
+
+        <!--后台修改商品action -->
+        <action name="updateGood.*" class="goodsAction" method="updateGood">
+            <result type="redirectAction" name="success">
+                <param name="actionName">showGoods.do</param>
+            </result>
+            <result name="error">/WEB-INF/page/editgoods.jsp</result>
+        </action>
+
+        <!--后台删除商品action -->
+        <action name="delGoods.*" class="goodsAction" method="delGoods">
+            <result type="redirectAction" name="success">
+                <param name="actionName">showGoods.do</param>
+            </result>
+            <result name="error">/WEB-INF/page/error.jsp</result>
+        </action>
+        <!-- 后台添加类别action -->
+        <action name="launchcrowd.*" class="clothestypeAction" method="launchCrowd">
+            <result type="redirectAction" name="success">showGoods.do</result>
+            <result name="error">/WEB-INF/page/launchCrowd.jsp</result>
+        </action>
+        <!-- 后台添加优惠商品 -->
+        <action name="launchFlashSale.*" class="flashSaleAction">
+            <result name="success" type="redirectAction">showGoods.do</result>
+            <result name="error">/WEB-INF/page/flashsale.jsp</result>
+        </action>
+        <!--后台更改分佣比例-->
+        <action name="edit_divided_into.*" class="goodsAction" method="editDivided_into"/>
+
+        <!--后台批量导入商品-->
+        <action name="exportUp.*" class="goodsAction" method="batchImport">
+            <result name="success" type="redirectAction">
+                <param name="actionName">fowordView.do</param>
+            </result>
+            <result name="error">/WEB-INF/page/exportGoodsView.jsp</result>
+        </action>
+
+        <!--一键导入校验-->
+        <action name="ultimateSubmit.*" class="goodsAction" method="ultimateSubmit">
+            <result type="redirectAction" name="success">
+                <param name="actionName">showGoods.do</param>
+            </result>
+            <result name="error">/WEB-INF/page/regExportExcel.jsp</result>
+        </action>
+        <!--下载表单-->
+        <action name="downloadExcel.*" class="clothestypeAction" method="downloadExcel">
+            <result name="success" type="stream">
+                <!-- 指定下载文件的文件类型 -->
+                <param name="contentType">application/vnd.ms-excel</param>
+                <!-- 指定stream方法名称 -->
+                <param name="inputName">inputStream</param>
+                <!-- 文件下载的处理方式，包括内联(inline)和附件(attachment)两种方式，默认为直接显示文件 -->
+                <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                <!-- 指定下载文件的缓冲大小 -->
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>
+
+        <!--===后台跳转页面===-->
+        <action name="launchgoodsPage.*">
+            <result>/WEB-INF/page/launchgoods.jsp</result>
+        </action>
+        <action name="launchCrowdPage.*">
+            <result>/WEB-INF/page/launchCrowd.jsp</result>
+        </action>
+        <action name="launchBrandPage.*">
+            <result>/WEB-INF/page/launchBrand.jsp</result>
+        </action>
+        <action name="flashsalePage.*">
+            <result name="success">/WEB-INF/page/flashsale.jsp</result>
+        </action>
+        <!--一键导入商品页面-->
+        <action name="exportGoodsView.*">
+            <result>/WEB-INF/page/exportGoodsView.jsp</result>
+        </action>
+        <!--跳转校验页面-->
+        <action name="fowordView.*">
+            <result>/WEB-INF/page/regExportExcel.jsp</result>
+        </action>
+        <!--===后台跳转页面===-->
+        <!-- >>>>商品管理结束<<<<<<< -->
+        <action name="themeActivity.*">
+            <result>/WEB-INF/page/createTheme.jsp</result>
+        </action>
+        <action name="createTheme.*" class="themeAction" method="createTheme">
+            <result name="success">/WEB-INF/page/createTheme.jsp</result>
+        </action>
+        <!-- 后台打印订单 -->
+        <!--<action name="excel.*" class="cn.iliker.action.ExcelAction">
+            <result name="excel" type="stream">
+                <param name="contentType">
+                    application/vnd.ms-excel
+                </param>
+                <param name="inputName">excelStream</param>
+                <param name="contentDisposition">
+                    filename="export.xls"
+                </param>
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>-->
+    </package>
+    <package name="store-json" extends="json-default">
+        <!-- 客户端查询更新action -->
+        <action name="apk_queryVersion.*" class="appVersionManager" method="queryVersion"/>
+        <action name="initSystem.*" class="systemInitAction" method="initSystemPrivilege">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+    </package>
+</struts>
+

@@ -1,0 +1,97 @@
+﻿.list li {
+    -webkit-box-sizing: border-box;
+    width: 100%;
+    height: 3.25rem;
+    padding: 0.5rem;
+    background: url(res-apple/go.png) no-repeat 98% center;
+    background-size: auto 1rem;
+    border-bottom: 1px solid #eee;
+    line-height: 1em;
+    overflow: hidden
+}
+
+.list h1 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.list h2 {
+    font-size: 0.75rem;
+}
+
+.hot {
+    width: 2rem;
+    height: 1rem;
+    background: url(res-apple/hot.png) no-repeat top left;
+    background-size: 1.5rem auto;
+}
+
+.storeTitle {
+    width: 94%;
+    padding: 1.5rem 0 0.5rem;
+    margin: 0 auto 0.75rem;
+    border-bottom: 3px solid #c49e44;
+    overflow: hidden;
+    font-size: 0.875rem;
+    color: #000;
+    text-align: center
+}
+
+.storeTitle h1 {
+    margin-bottom: 0.25rem;
+    font-size: 1.125rem;
+    color: #89661a;
+    text-shadow: 1px 1px rgba(255, 255, 255, .6);
+}
+
+.discount li {
+    -webkit-box-sizing: border-box;
+    width: 94%;
+    padding: 0.25rem;
+    margin: 0 auto 0.5rem;
+    background: #fff;
+    border: 2px solid #f2ead6;
+    font-size: 0.75rem;
+    color: #666;
+    overflow: hidden
+}
+
+.discount li p {
+    line-height: 1.3em;
+    margin-bottom: 0.5rem;
+    word-break: break-all;
+}
+
+.discount li p span {
+    margin-left: 0.5rem;
+}
+
+.discount li p span strong {
+    font-size: 1rem;
+    color: #f40
+}
+
+.discount li > .name {
+    display: inline;
+    font-size: 0.875rem;
+    color: #c49e44;
+    margin-top: 0.25rem;
+    font-weight: bold
+}
+
+.discount li img {
+    width: 6rem;
+    height: 6rem;
+    margin-right: 0.25rem;
+    float: left
+}
+
+.map {
+    -webkit-box-sizing: border-box;
+    width: 94%;
+    height: 15.5rem;
+    margin: 1rem auto;
+    background: #fff;
+    border: 1px solid #c9c9c9
+}

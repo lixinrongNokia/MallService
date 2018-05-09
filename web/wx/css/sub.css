@@ -1,0 +1,72 @@
+/*服务详情*/
+.service p {
+    font-size: 0.875rem;
+    text-indent: 2em;
+    width: 90%;
+    margin: 0.5rem auto;
+    line-height: 1.4em;
+}
+
+.serviceZp {
+    -webkit-box-sizing: border-box;
+    width: 90%;
+    margin: 0.5rem auto;
+    overflow: hidden;
+    line-height: 0;
+    border: 0.3125rem solid #e6e6e6
+}
+
+.serviceZp img {
+    width: 100%;
+    height: auto;
+}
+
+/*用户评论*/
+.commentTab {
+    width: 100%;
+    height: 1.75rem;
+    background: #ff6fc3
+}
+
+.commentTab li {
+    -webkit-box-sizing: border-box;
+    width: 25%;
+    height: 1.5rem;
+    margin-top: 0.125rem;
+    float: left;
+    border-left: 1px solid #fff;
+    text-align: center;
+    line-height: 1.5rem;
+    color: #fff
+}
+
+.commentTab li:first-child {
+    border-left: none;
+}
+
+.comment {
+    width: 94%;
+    margin: 0.5rem auto;
+    overflow: hidden;
+}
+
+.comment li {
+    -webkit-box-sizing: border-box;
+    width: 100%;
+    padding: 0.625rem 0.25rem;
+    border-bottom: 1px solid #e0e0e0;
+    overflow: hidden;
+}
+
+.comment li p {
+    margin-bottom: 0.75rem;
+    font-size: 0.9375rem;
+    line-height: 1em;
+    color: #666666;
+}
+
+.comment li p:last-child {
+    margin-bottom: 0;
+    font-size: 0.75rem;
+    color: #aaa
+}

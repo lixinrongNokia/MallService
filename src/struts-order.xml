@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="orderManager" extends="default,json-default">
+        <!-- 分页查询全部所有订单 -->
+        <action name="allorder.*" class="orderManagerAction" method="queryOrder">
+            <result name="success">/WEB-INF/page/orderlist.jsp</result>
+            <result name="none">/WEB-INF/page/orderlist.jsp</result>
+        </action>
+        <!-- 根据订单号查询详细订单项目 -->
+        <action name="orderdetailinfo.*" class="orderManagerAction"
+                method="findByorderid">
+            <result name="success">/WEB-INF/page/printOrder.jsp</result>
+        </action>
+
+        <!-- 后台查询所有的物流公司准备提交物流信息 -->
+        <action name="loadlogistics.*" class="orderManagerAction" method="inputPostInfo">
+            <result name="success">/WEB-INF/page/uploadlogistics.jsp</result>
+        </action>
+
+        <!--根据订单id取消订单-->
+        <action name="cancelOrder.*" class="orderManagerAction" method="cancelOrder">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--审核有效订单-->
+        <action name="confirmOrdering.*" class="orderManagerAction" method="confirmOrdering">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!-- 财务确认付款 -->
+        <action name="confirmPayment.*" class="orderManagerAction"
+                method="confirmPayment">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--订单退款-->
+        <action name="transferAppAccount.*" class="orderManagerAction" method="transferAppAccount">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--拒绝退款-->
+        <action name="rejectRefunds.*" class="orderManagerAction" method="rejectRefunds">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--完成备货-->
+        <action name="prepareDelivery.*" class="orderManagerAction" method="prepareDelivery">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+
+        <!-- 后台收集提交物流信息 -->
+        <action name="upLogisticsinfo.*" class="logisticsAction" method="addLogisticsinfo">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+    </package>
+    <package name="order-json" extends="json-default">
+        <!--客户取消订单-->
+        <action name="userCancelOrder.*" class="orderManagerAction" method="userCancelOrder">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!-- 客户端查询物流信息 -->
+        <action name="querylogistics.*" class="logisticsAction" method="queryLogistics">
+            <result name="success" type="redirect">http://m.kuaidi100.com/index_all.html?type=${companyCode}&amp;postid=${logisticscode}
+            </result>
+        </action>
+        <!--快递鸟物流订阅接受推送接口-->
+        <action name="logisticsPush.*" class="logisticsAction" method="executePush"/>
+        <!--根据用户电话订单状态分页查询所有订单-->
+        <action name="loadOrderByPhone.*" class="orderManagerAction" method="queryOrderByProperty">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--用户提交订单-->
+        <action name="addOrder.*" class="orderManagerAction" method="addOrder">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--根据订单id查询订单-->
+        <action name="orderDetailById.*" class="orderManagerAction" method="orderDetail">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+    </package>
+</struts>

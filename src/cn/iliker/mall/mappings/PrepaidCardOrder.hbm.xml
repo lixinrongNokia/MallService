@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="cn.iliker.mall.entity.PrepaidCardOrder" table="prepaidcard">
+        <id name="id" type="java.lang.String">
+            <generator class="assigned"/>
+        </id>
+        <property name="denomination" type="java.lang.Double" not-null="true"/>
+        <property name="voucher_value" type="java.lang.Double"/>
+        <property name="cardUrl" type="java.lang.String" length="50" not-null="true"/>
+        <property name="effective" type="java.lang.Boolean"/>
+        <property name="phone" type="java.lang.String" length="32" not-null="true"/>
+        <property name="sys_flag" type="java.lang.Boolean"/>
+        <property name="activation" type="java.util.Date"/>
+    </class>
+</hibernate-mapping>

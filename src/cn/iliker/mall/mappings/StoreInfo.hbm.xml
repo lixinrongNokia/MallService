@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="cn.iliker.mall.entity.StoreInfo" table="storeinfo" catalog="afe">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="native"/>
+        </id>
+        <property name="loginEmail" type="java.lang.String" length="50" unique="true"/>
+        <property name="loginPwd" type="java.lang.String" length="20"/>
+        <property name="storeName" type="java.lang.String" length="20"/>
+        <property name="faceIcon" type="java.lang.String" length="150"/>
+        <property name="latitude" type="java.lang.Double"/>
+        <property name="longitude" type="java.lang.Double"/>
+        <property name="tell" type="java.lang.String" length="14"/>
+        <property name="contacts" type="java.lang.String" length="5"/>
+        <property name="address" type="java.lang.String" length="50"/>
+        <property name="visible" type="java.lang.Integer"/>
+        <property name="regTime" type="java.lang.String" length="16"/>
+        <property name="outTime" type="java.lang.Long" length="16"/>
+        <property name="arbitration" type="java.lang.Integer"/>
+        <set name="unpackOrders" inverse="true" cascade="refresh">
+            <key column="store_id"/>
+            <one-to-many class="cn.iliker.mall.entity.UnpackOrder" />
+        </set>
+        <one-to-one name="storeWallet" class="cn.iliker.mall.entity.StoreWallet" cascade="all"/>
+    </class>
+</hibernate-mapping>

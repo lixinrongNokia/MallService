@@ -1,0 +1,124 @@
+/*商品分类页*/
+.category-top .search {
+    border-bottom: 1px solid #e8e8e8;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    background: #F6F6F9
+}
+
+.menu-left, .menu-right {
+    position: fixed;
+    left: 0;
+    top: 3.25rem;
+    bottom: 0;
+    overflow-y: scroll;
+}
+
+.menu-left {
+    background: #F6F6F9;
+}
+
+.menu-left ul li {
+    padding: 1.3rem .8rem;
+    box-sizing: border-box;
+    font-size: 0.6875rem;
+    width: 5rem;
+    text-align: center;
+}
+
+.menu-left ul li.active {
+    background: #fff;
+    position: relative;
+}
+
+.menu-left ul li.active:before {
+    content: " ";
+    position: absolute;
+    display: block;
+    width: 2px;
+    height: 100%;
+    background: #1CBB7F;
+    top: 0;
+    left: 0;
+}
+
+.menu-right {
+    background: #fff;
+    position: inherit;
+    margin-left: 5rem;
+    /*margin-top: 3.25rem;*/
+    right: 0;
+    bottom: 0;
+}
+
+.menu-right h5 {
+    font-size: 1.0rem;
+    color: #666;
+}
+
+.menu-right h5:first-child {
+    margin-top: 0;
+}
+
+.menu-right ul {
+    overflow: hidden;
+}
+
+.menu-right ul li {
+    text-align: center;
+}
+
+.menu-right ul li a {
+    display: block;
+    position: absolute;
+    left: .3rem;
+    top: .7rem;
+    bottom: .7rem;
+    right: .3rem;
+}
+
+.menu-right ul li:nth-child(3n+1) a {
+    left: 0;
+    right: .7rem;
+}
+
+.menu-right ul li:nth-child(3n) a {
+    right: 0;
+    left: .7rem;
+}
+
+.menu-right ul li span {
+    display: block;
+    height: 2.6rem;
+    line-height: 2.6rem;
+    overflow: hidden;
+    text-align: center;
+    font-size: 0.6875rem
+}
+
+.menu-right ul li img {
+    width: auto;
+    height: 50px;
+}
+
+.mune-no-img img {
+    display: none
+}
+
+.mune-no-img span {
+    border: 1px solid #efefef;
+    color: #555;
+    border-radius: 4px;
+}
+
+/*多个一行三个*/
+.w-3{width:33.33%;  float:left; padding:.6rem .4rem; box-sizing: border-box; position: relative;}
+.w-3:nth-child(3n+1){padding-left:0; padding-right:.8rem}
+.w-3:nth-child(3n){ padding-left: .8rem;padding-right:0;}
+
+/*=======================================
+		购物车页
+  =======================================*/

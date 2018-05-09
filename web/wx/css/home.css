@@ -1,0 +1,109 @@
+﻿.zp {
+    width: 100%;
+    height: 9.375rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.zp ul {
+    -webkit-transition: left 800ms;
+    ease-in: 0;
+}
+
+.zp li img {
+    width: 100%;
+    height: 9.375rem
+}
+
+.zp #pagenavi {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.zp #pagenavi a {
+    width: 10px;
+    height: 10px;
+    line-height: 99em;
+    background: rgba(255, 255, 255, 0.3);
+    -webkit-border-radius: 50px;
+    margin: 0 2px;
+    overflow: hidden;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.zp #pagenavi a.active {
+    background: #C80002;
+}
+
+.list {
+    width: 100%;
+    height: 8rem;
+    background: #f5f5f5;
+    overflow: hidden;
+    color: #f40;
+    line-height: 1em;
+    text-align: center;
+    position: relative
+}
+
+.list li {
+    float: left;
+    width: 6.25rem;
+    height: 7.5rem;
+    margin-bottom: 0.25rem;
+    background: #fff;
+    -webkit-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
+    overflow: hidden
+}
+
+.list li:nth-child(1) {
+    margin-left: 0.25rem;
+}
+
+.list li:nth-child(2) {
+    position: absolute;
+    bottom: 0.25rem;
+    left: 50%;
+    z-index: 999;
+    margin-left: -3.125rem;
+}
+
+.list li:nth-child(3) {
+    float: right;
+    margin-right: 0.25rem;
+}
+
+.list li img {
+    -webkit-box-sizing: border-box;
+    width: 6.25rem;
+    height: 6.25rem;
+    border: 2px solid #fff
+}
+
+h1, h2 {
+    -webkit-box-sizing: border-box;
+    width: 100%;
+    height: 1.5rem;
+    margin-top: 0.25rem;
+    padding-left: 0.5rem;
+    background: #f5f5f5;
+    line-height: 1.5rem;
+}
+
+h1 img {
+    width: 1.25rem;
+    height: 1.25rem;
+    vertical-align: middle;
+    margin-right: 0.25rem
+}
+
+h2 img {
+    width: auto;
+    height: 1.5rem;
+    vertical-align: middle;
+    margin-right: 0.25rem
+}

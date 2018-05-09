@@ -1,0 +1,121 @@
+@charset "utf-8";
+/*IE样式修正文件*/
+.G-tabBox .tabBnt li {
+}
+/*登录注册提交按钮修正*/
+.loginSubmitBnt input {
+    border: 0 solid #005894;
+    margin: 0;
+    padding: .5em 1em .5em 1.5em;
+    height: 2.4em;
+}
+
+/*ie 记住用户名和密码修正*/
+.theLoginBox em input {
+    width: auto;
+    border: none;
+}
+
+.G-imNav div {
+    _margin: -.3em 0 0;
+}
+
+.G-imNav strong {
+    overflow: hidden;
+}
+
+.G-imNav li {
+    width: 150px;
+    height: 26px;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+.G-imNav .act a {
+    line-height: 24px;
+    width: auto;
+    border: 0;
+}
+
+.G-imNav li a {
+    line-height: 24px;
+    width: 110px;
+    padding: 0 0 0 40px;
+    border-bottom: .2em solid #F2FCFF;
+    border-left: .2em solid #F2FCFF;
+    border-right: .2em solid #F2FCFF;
+    border-top: .1em solid #F2FCFF;
+}
+
+.G-imNav li a:hover {
+    border-color: #fff;
+    color: blue;
+}
+
+/*.G-imNav li a {_background:url(images/micos.gif) no-repeat;padding:10px 0 10px 65px;}*/
+
+.selectWidget li {
+    margin: 0 .2em 1.5em .3em \9;
+}
+.G-frameHead .nav .G-addSite a {
+    margin: 12px 0 0;
+}
+
+.theChart div {
+    background: none;
+}
+
+.btn {
+    _line-height: 1em;
+    _zoom: 1;
+    _width: auto;
+    _height: 100%;
+    *padding: .5em .25em 0;
+}
+
+.choseDate span {
+    *margin-right: .5em !important;
+    *float: left;
+    *display: inline;
+}
+
+.choseDate {
+    *zoom: 1;
+}
+
+.hasDatepicker {
+    _width: 80px;
+}
+
+.add-bind-Btn {
+    *position: relative;
+    *margin: 0 0 -2em !important;
+    _float: right;
+    *top: 0;
+    _width: 66px;
+    _height: 15px;
+}
+
+.G-frameHead .G-innerHead .usertoolbar ul li.info {
+    *right: 0;
+    *width: 100%;
+    _left: 0;
+    _width: 50%;
+}
+
+.G-frameHead .G-innerHead .usertoolbar ul li.info ul {
+    _background: #fff;
+}
+
+.G-frameHead .G-innerHead .usertoolbar ul li.add {
+    _margin: 0 2px;
+}
+
+.siteList .inArea .theShowArea {
+    padding: 24px 36px;
+}
+
+.siteList .inArea .siteSearch {
+    filter: none;
+}

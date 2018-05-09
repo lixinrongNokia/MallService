@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="cn.iliker.mall.entity">
+    <class name="WXUser" table="wxuser">
+        <composite-id name="bindWXID" class="BindWXID">
+            <key-property name="unionID" column="unionid" type="java.lang.String" length="50"/>
+            <key-many-to-one column="uid" name="userinfo" class="Userinfo" lazy="false"/>
+        </composite-id>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="cn.iliker.mall.entity.KdniaoPushResult" table="KdniaoPushResult" catalog="afe">
+        <id name="PushId" type="java.lang.Integer">
+            <column name="PushId"/>
+            <generator class="native"/>
+        </id>
+        <property name="EBusinessID" type="java.lang.String" column="EBusinessID" length="10" not-null="true"/>
+        <property name="count" type="java.lang.String" column="count" length="2" not-null="true"/>
+        <property name="PushTime" type="java.lang.String" column="PushTime" length="20" not-null="true"/>
+        <list name="data" table="pushitem" cascade="all" lazy="false">
+            <key column="PushResultId"/>
+            <index column="push_index"/>
+            <one-to-many class="cn.iliker.mall.entity.PushItem"/>
+        </list>
+    </class>
+</hibernate-mapping>

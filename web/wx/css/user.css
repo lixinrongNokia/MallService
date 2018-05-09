@@ -1,0 +1,253 @@
+﻿body {
+    background: #f5f5f5;
+    padding: 0.25rem 0.625rem;
+}
+
+.top {
+    width: 100%;
+    height: 6.25rem;
+    margin: 0.5rem 0 1rem;
+    font-size: 0.875rem;
+    color: #a2a2a2;
+    overflow: hidden;
+    position: relative
+}
+
+.top img {
+    -webkit-box-sizing: border-box;
+    width: 6.25rem;
+    height: 6.25rem;
+    float: left;
+    margin-right: 0.25rem;
+    -webkit-border-image: url(res-apple/pic_border.gif) 7/7px stretch;
+}
+
+.top p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.3rem
+}
+
+.yuE {
+    -webkit-box-sizing: border-box;
+    width: 10rem;
+    height: 3.25rem;
+    background: #fff;
+    border: 1px solid #e7e7e7;
+    overflow: hidden;
+    position: absolute;
+    left: 6.5rem;
+    bottom: 0;
+    z-index: 999;
+}
+
+.yuE p {
+    font-size: 0.875rem;
+    color: #a2a2a2;
+    line-height: 1.5rem
+}
+
+.yuE p:nth-child(2) {
+    color: #f50
+}
+
+.list {
+    -webkit-box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 0.75rem;
+    border: 1px solid #e7e7e7;
+    position: relative
+}
+
+.list li, .addressList li {
+    -webkit-box-sizing: border-box;
+    width: 100%;
+    background: url(res-apple/go.png) no-repeat 98% center;
+    background-size: auto 0.75rem;
+    border-bottom: 1px solid #e7e7e7;
+    font-size: 0.875rem;
+    color: #999;
+    overflow: hidden
+}
+
+.list li {
+    height: 3rem;
+    line-height: 3rem;
+}
+
+.list li:last-child {
+    border: none
+}
+
+.list li img {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin: 0 0.5rem;
+    vertical-align: middle;
+}
+
+.quit {
+    width: 100%;
+    height: 2.5rem;
+    margin-top: 1rem;
+    background: #f40;
+    color: #fff;
+    font-size: 1rem;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, .3);
+    text-align: center;
+    line-height: 2.5rem
+}
+
+/*管理地址*/
+.addressList {
+    width: 100%;
+    margin-top: 0.5rem;
+    overflow: hidden
+}
+
+.addressList li {
+    padding: 0.5rem 0
+}
+
+.addressList li p {
+    line-height: 1.3em;
+}
+
+.addressList li p:first-child {
+    font-size: 1rem
+}
+
+/*地址编辑*/
+.addressEdu li {
+    -webkit-box-sizing: border-box;
+    width: 100%;
+    height: 3.875rem;
+    margin: auto;
+    border-bottom: 1px solid #dadada;
+    overflow: hidden
+}
+
+.addressEdu li:nth-child(1) {
+    height: 5.75rem
+}
+
+.addressEdu li:last-child {
+    margin-bottom: 3rem;
+}
+
+.addressEdu li input {
+    width: 100%;
+    height: 1.5rem;
+    margin: 0.75rem auto 0.25rem;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    font-size: 1rem;
+    color: #000;
+}
+
+.addressEdu li input::-webkit-input-placeholder {
+    color: #000;
+}
+
+.addressEdu li h2 {
+    font-size: 0.75rem;
+    color: #999;
+}
+
+select {
+    -webkit-box-sizing: border-box;
+    width: 40%;
+    margin: 0.5rem 5% 0;
+    padding-left: 0.5em;
+    height: 2rem;
+    background: url(res-apple/select.png) no-repeat right center, url(res-apple/btn3.png) no-repeat right center, #fff;
+    -webkit-background-size: 2rem auto, 2rem 100%;
+    -webkit-box-shadow: inset 2px 3px 4px rgba(194, 194, 194, .75);
+    border: solid 1px #bebebe;
+    -webkit-appearance: none;
+}
+
+select:nth-child(3) {
+    width: 90%;
+    margin: 0.5rem 5%;
+}
+
+#auto, #autoFouce {
+    -webkit-box-sizing: border-box;
+    width: 2rem;
+    height: 1.5rem;
+    background-size: 1.25rem auto;
+}
+
+#auto {
+    background: url(res-apple/auto.png) no-repeat left center;
+}
+
+#autoFouce {
+    background: url(res-apple/auto_f.png) no-repeat left center;
+    display: none
+}
+
+/*开关*/
+.checkbox {
+    display: inline-block;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.25rem;
+    z-index: 999;
+    padding: 1px;
+    width: 4rem;
+    height: 2rem;
+    background-color: #222;
+    text-align: center;
+    -webkit-box-shadow: inset 0 1px 2px black, 0 1px 0 rgba(255, 255, 255, 0.1);
+    -webkit-border-radius: 0.375rem;
+    overflow: hidden;
+}
+
+.checkbox input {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 0;
+    opacity: 0;
+    z-index: 99;
+}
+
+.checkbox label {
+    width: 2.5rem;
+    height: 2rem;
+    margin-left: -2.5rem;
+    background-color: #034B78;
+    -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.7);
+    -webkit-border-radius: 0.375rem;
+    font-size: 1.25rem;
+    font-family: "微软雅黑";
+    font-weight: bold;
+    line-height: 2rem;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.7);
+    text-align: center;
+    text-indent: 0;
+    -webkit-transition: margin-left 0.2s ease-in-out;
+}
+
+.checkbox label:before {
+    content: attr(data-on);
+}
+
+.checkbox input:checked + label {
+    margin-left: 0.5rem;
+    background-color: #3c3c3c;
+    color: #999;
+}
+
+.checkbox input:checked + label:before {
+    content: attr(data-off);
+}

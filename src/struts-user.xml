@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="user-json" extends="json-default">
+        <!-- 保存用户身型数据 -->
+        <action name="saveSideData.*" class="userAction" method="saveSideData">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!-- 获取用户最近身型数据 -->
+        <action name="getBodyByUID.*" class="userAction" method="getBodyByUID">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+
+        <!--客户端用户登陆-->
+        <action name="userLogin.*" class="wxServiceAction" method="userLogin">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--加载用户收货地址-->
+        <action name="loadDeliverInfo.*" class="wxServiceAction" method="loadDeliverInfos">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--添加或修改收货地址-->
+        <action name="editDeliverInfo.*" class="wxServiceAction" method="editDeliverInfo">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--发送即时消息-->
+        <action name="sendIMToPerson.*" class="userAction" method="sendIMToPerson">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!-- ajax异步检查手机号验证-->
+        <action name="regphone.*" class="sendSMSCodeAction" method="regPhone">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--web用户注册-->
+        <action name="webuserregister.*" class="sendSMSCodeAction" method="webValidate">
+            <result type="redirectAction" name="success">
+                <param name="actionName">userRegister.do</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <action name="regActivate.*" class="sendSMSCodeAction" method="regActivate">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+            </result>
+        </action>
+
+        <action name="userRegister.*" class="userAction" method="userRegister">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+            </result>
+        </action>
+        <!--余额账户页面显示-->
+        <action name="showAccount_*" class="userAccountAction" method="{1}">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+            </result>
+            <allowed-methods>getIntegral,getWallet,getGiveAccount,getSpendings,getIncomes</allowed-methods>
+        </action>
+        <!--查找账户优惠券-->
+        <action name="findCouponsByPhone.*" class="userAccountAction" method="findCouponsByPhone">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+            </result>
+        </action>
+        <!--根据手机号码查询-->
+        <action name="getUserInfo.*" class="userAction" method="getUserInfoByPhone">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+            </result>
+        </action>
+        <!--人脸登陆-->
+        <action name="faceLogin.*" class="wxServiceAction" method="faceLogin">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+            </result>
+        </action>
+        <!--用户上传头像-->
+        <action name="upload_head_portrait.*" class="userAction" method="uploadHeadPortrait">
+            <interceptor-ref name="fileUpload">
+                <param name="maximumSize">307200</param>
+                <!-- 配置允许上传的文件类型 -->
+                <param name="allowedTypes">
+                    image/bmp,image/png,image/gif,image/jpeg,image/jpg,image/webp
+                </param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack"/>
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="input" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <allowed-methods>uploadHeadPortrait</allowed-methods>
+        </action>
+        <!--用户分享图片到社区-->
+        <action name="share_portrait.*" class="userAction" method="sharePortrait">
+            <interceptor-ref name="fileUpload">
+                <param name="maximumSize">2764800</param>
+                <!-- 配置允许上传的文件类型 -->
+                <param name="allowedTypes">
+                    image/bmp,image/png,image/gif,image/jpeg,image/jpg,image/webp
+                </param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack"/>
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="input" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <allowed-methods>sharePortrait</allowed-methods>
+        </action>
+        <!--批量导入用户-->
+        <action name="batchImport.*" class="userAction" method="batchImport"/>
+        <!--群发短信-->
+        <action name="multiNotify.*" class="userAction" method="multiNotify"/>
+        <!--设置支付密码-->
+        <action name="changePayment_code.*" class="userAction" method="changePaymentCode">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+            </result>
+        </action>
+        <action name="balancePay.*" class="userAccountAction" method="balancePay">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+            </result>
+        </action>
+        <!--申请提现-->
+        <action name="addTransfer.*" class="transferAction" method="addTransfer">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+            </result>
+        </action>
+
+        <action name="addRechargeOrder.*" class="userAccountAction" method="addRechargeOrder">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+            </result>
+        </action>
+        <action name="loadChild.*" class="userAction" method="getChild">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+            </result>
+        </action>
+        <action name="findPwdByPhone.*" class="userAction" method="findPwdByPhone">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+            </result>
+        </action>
+        <action name="getRongYunIMToken.*" class="userAction" method="rongYunIMTokenService">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+            </result>
+        </action>
+        <action name="findPwdForSecond.*" class="sendSMSCodeAction" method="findPwdForSecond">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+            </result>
+        </action>
+        <action name="findPwdByUpdate.*" class="userAction" method="findPwdByUpdate">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+            </result>
+        </action>
+        <!--激活VIP-->
+        <action name="activateUser.*" class="userAction" method="activateUser">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+            </result>
+        </action>
+        <!--举报分享内容-->
+        <action name="reportShare.*" class="userAction" method="reportShare">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+            </result>
+        </action>
+        <action name="findChlid.*" class="userAction" method="findChlid"/>
+    </package>
+</struts>
