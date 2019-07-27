@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="cn.iliker.mall.entity.Theme" table="theme" catalog="afe">
+        <id name="themeid" type="java.lang.Integer">
+            <column name="themeid"/>
+            <generator class="native"/>
+        </id>
+        <property name="themeName" type="java.lang.String">
+            <column name="themeName" length="50" not-null="true"/>
+        </property>
+        <property name="introduction" type="java.lang.String">
+            <column name="introduction" length="200" not-null="true"/>
+        </property>
+        <property name="themeURL" type="java.lang.String">
+            <column name="themeURL" length="50"/>
+        </property>
+        <property name="startTime" type="java.lang.String">
+            <column name="startTime" length="20"/>
+        </property>
+        <property name="endTime" type="java.lang.String">
+            <column name="endTime" length="20" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

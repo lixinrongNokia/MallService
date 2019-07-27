@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="goodsManager" extends="default">
+        <!-- 所有商品action -->
+        <action name="showGoods.*" class="goodsAction" method="queryGoods">
+            <result name="success">/WEB-INF/page/goodsManage.jsp</result>
+            <result name="error">/WEB-INF/page/goodsManage.jsp</result>
+        </action>
+        <!--商品上下架-->
+        <action name="visibleGoods.*" class="goodsAction" method="visibleGoods">
+            <result type="redirectAction" name="success">
+                <param name="actionName">showGoods.do</param>
+            </result>
+        </action>
+        <!--根据goodsId查询商品action -->
+        <action name="findGoods.*" class="goodsAction" method="findGoods">
+            <result name="success">/WEB-INF/page/editgoods.jsp</result>
+        </action>
+    </package>
+    <package name="goods-json" extends="json-default">
+        <!-- 后台ajax异步检查商品编号返回文本 -->
+        <action name="regGoodCode.*" class="goodsAction" method="regGoodCode">
+            <result name="success" type="plainText">
+                <param name="charSet">UTF-8</param>
+                <param name="location">/WEB-INF/page/launchgoods.jsp</param>
+            </result>
+        </action>
+        <!--客户端商品模糊搜索接口-->
+        <action name="searchGoods.*" class="goodsAction" method="searchGoods"/>
+        <!--首页三个栏目-->
+        <action name="recommended.*" class="goodsAction" method="getGoodsAsList">
+            <result name="success" type="json">
+                <param name="root">resJSON</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--查询品牌-->
+        <action name="queryBrand.*" class="goodsAction" method="queryBrands">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--商品详情-->
+        <action name="getGoodsById.*" class="goodsAction" method="getGoodsById">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--获取所有分类-->
+        <action name="queryCrowd.*" class="clothestypeAction" method="queryCrowds">
+            <result name="success" type="json">
+                <param name="root">crowds</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--获取所有分类2-->
+        <action name="loadClassify.*" class="goodsAction" method="loadClassify">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--获取所有子目录-->
+        <action name="loadClothestypes.*" class="clothestypeAction" method="loadClothestypes">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!-- 根据大类别获取类别下的商品类目 -->
+        <action name="querytype.*" class="clothestypeAction" method="querytype">
+            <result type="json">
+                <param name="root">jsonarray</param>
+            </result>
+        </action>
+        <!--获取子目录下同类型商品-->
+        <action name="productList.*" class="orderManagerAction" method="loadProductList">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--获取限时优惠商品-->
+        <action name="productTimeList.*" class="orderManagerAction" method="loadTimelimitList">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+
+        <action name="getGoods_*.*" class="flashSaleAction" method="{1}">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--获取收藏的商品-->
+        <action name="getCollection.*" class="goodsAction" method="getCollectionByUserIds">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--获取所有品牌-->
+        <action name="loadBrands.*" class="goodsAction" method="loadBrands">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--根据商品编号获取对应的颜色与尺寸-->
+        <action name="getAttrByGoodsCode.*" class="goodsAction" method="getAttrByGoodsCode">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+    </package>
+</struts>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+    <bean id="createcode" class="cn.iliker.mall.control.CreateImageAction" p:orderSvc-ref="torderManagerSvc" scope="prototype"/>
+    <!--举报服务类-->
+    <bean id="reportObjSvc" class="cn.iliker.mall.service.impl.ReportObjSvcImpl" p:reportObjDAO-ref="reportObjDAO"/>
+    <!-- 管理员服务 -->
+    <bean id="adminSvc" class="cn.iliker.mall.service.impl.AdminImpl"
+          p:dao-ref="adminManagerDAO"/>
+    <bean id="adminAction" scope="prototype" class="cn.iliker.mall.control.AdmininfoAction"
+          p:adminSvc-ref="adminSvc" p:testjob-ref="emailJob" p:privilegeManagerSvc-ref="privilegeManagerSvc"/>
+    <!-- 普通用户服务 -->
+    <bean id="userSvc" class="cn.iliker.mall.service.impl.UserinfoSvcImpl"
+          p:dao-ref="userInfoDAO" p:aliYunAccountSvc-ref="aliYunAccountSvc" p:userAccountDAO-ref="userAccountDAO"/>
+    <bean id="userAction" class="cn.iliker.mall.control.UserManager" scope="prototype" p:usersvc-ref="userSvc"
+          p:testjob-ref="emailJob" p:querySvc-ref="commonQuerySvc" p:aliYunAccountSvc-ref="aliYunAccountSvc"
+          p:shareSvc-ref="shareSvc" p:reportObjSvc-ref="reportObjSvc"/>
+    <!-- p:usersvc-ref="userSvc"/> -->
+    <!-- 分享管理 -->
+    <bean id="shareSvc" class="cn.iliker.mall.service.impl.ShareSvcImpl"
+          p:dao-ref="shareDAO"/>
+    <bean id="commentsSvc" class="cn.iliker.mall.service.impl.CommentsSvcImpl" p:dao-ref="commentsDAO"/>
+    <bean id="shareAction" class="cn.iliker.mall.control.ShareManager" scope="prototype"
+          p:shareSvc-ref="shareSvc" p:commentsSvc-ref="commentsSvc"/>
+
+    <bean id="commAction" class="cn.iliker.mall.control.CommSvcAction" scope="prototype"
+          p:commentsSvc-ref="commentsSvc"/>
+    <!-- 上传功能 -->
+    <bean id="apkVerSionSvc" class="cn.iliker.mall.service.impl.ApkVerSionImpl"
+          p:apkdao-ref="apkVersionDAO"/>
+    <bean id="appVersionManager" class="cn.iliker.mall.control.AppVersionManager"
+          p:apksvc-ref="apkVerSionSvc"/>
+    <!-- 类别服务 -->
+    <bean id="crowdSvc" class="cn.iliker.mall.service.impl.CrowdSvcImpl"
+          p:crowd-ref="crowdDAO"/>
+    <!-- 上架商品 -->
+    <bean id="goodsSvc" class="cn.iliker.mall.service.impl.GoodsSvcImpl"
+          p:good-ref="goodsDAO" p:collectionDAO-ref="collectionDAO"/>
+    <bean id="searchSvc" class="cn.iliker.mall.service.impl.SearchSvcImpl" p:searchDAO-ref="searchDAO"/>
+    <!--添加品牌-->
+    <bean id="brandSvc" class="cn.iliker.mall.service.impl.BrandSvcImpl" p:brandDAO-ref="brandDAO"/>
+    <bean id="brandAction" class="cn.iliker.mall.control.BrandAction" p:brandSvc-ref="brandSvc"/>
+    <bean id="goodsAction" class="cn.iliker.mall.control.GoodsManger" scope="prototype"
+          p:goodsvc-ref="goodsSvc" p:crowdSvc-ref="crowdSvc" p:brandSvc-ref="brandSvc" p:searchSvc-ref="searchSvc"/>
+    <!-- 商品类别 -->
+    <bean id="clothestypeSvc" class="cn.iliker.mall.service.impl.ClothesTypeSvcImpl"
+          p:clothesType-ref="clothesTypeDAO"/>
+    <bean id="clothestypeAction" class="cn.iliker.mall.control.ClothestypeAction" scope="prototype"
+          p:closvc-ref="clothestypeSvc"/>
+    <bean id="courierSvc" class="cn.iliker.mall.service.impl.CourierSvcImpl" p:courierdao-ref="courierCompanyDAO"/>
+    <bean id="torderManagerSvc" class="cn.iliker.mall.service.impl.TOrderSvcImpl"
+          p:dao-ref="tOrderDAO"/>
+    <!--物流推送业务-->
+    <bean id="logisticsPushSvc" class="cn.iliker.mall.service.impl.KdniaopushresultImpl"
+          p:kdniaopushresultDAO-ref="kdniaopushresultDAO"/>
+    <bean id="commonQuerySvc" class="cn.iliker.mall.service.impl.CommonQuerySvcImpl"
+          p:commonQueryDAO-ref="commonQueryDAO"/>
+    <bean id="orderManagerAction" class="cn.iliker.mall.control.OrderManagerAction" scope="prototype"
+          p:tordersvc-ref="torderManagerSvc" p:couriersvc-ref="courierSvc" p:querySvc-ref="commonQuerySvc"
+          p:transferSvc-ref="transferSvc"/>
+    <bean id="logisticsSvc" class="cn.iliker.mall.service.impl.LogisticsSvcImpl" p:logisticsdao-ref="logisticsDAO"
+          p:itOrderDao-ref="tOrderDAO"/>
+    <bean id="logisticsAction" class="cn.iliker.mall.control.LogisticsAction" p:logisticsSvc-ref="logisticsSvc"
+          p:tordersvc-ref="torderManagerSvc" p:kdniaopushresultSvc-ref="logisticsPushSvc"/>
+    <bean id="flashSaleSvc" class="cn.iliker.mall.service.impl.FlashSaleSvcimpl" p:flashsaleDAO-ref="flashSaleDAO"/>
+    <bean id="flashSaleAction" class="cn.iliker.mall.control.FlashSaleAction" p:fixme-ref="flashSaleSvc"/>
+
+    <bean id="sendSMSCodeAction" class="cn.iliker.mall.control.SendSMSCodeAction" scope="prototype"
+          p:userinfoSvc-ref="userSvc" p:aliYunAccountSvc-ref="aliYunAccountSvc"/>
+
+    <bean id="transferDetailSvc" class="cn.iliker.mall.service.impl.TransferDetailSvcImpl"
+          p:transferDetailDAO-ref="transferDetailDAO"/>
+    <bean id="transferSvc" class="cn.iliker.mall.service.impl.TransferSvcImpl" p:transferDao-ref="transferDAO"
+          p:userAccountDAO-ref="userAccountDAO" p:orderDao-ref="tOrderDAO" p:aliYunAccountSvc-ref="aliYunAccountSvc"/>
+    <bean id="transferRecordSvc" class="cn.iliker.mall.service.impl.TransferRecordImpl"
+          p:transferrecordDao-ref="transferRecordDAO"/>
+    <!--查询待处理转账申请-->
+    <bean id="transferAction" class="cn.iliker.mall.control.AccountManager" scope="prototype"
+          p:transferSvc-ref="transferSvc"
+          p:transferRecordSvc-ref="transferRecordSvc" p:transferDetailSvc-ref="transferDetailSvc"
+          p:userinfoSvc-ref="userSvc" p:commonQuerySvc-ref="commonQuerySvc"/>
+
+    <bean id="themeSvc" class="cn.iliker.mall.service.impl.ThemeDaoImpl" p:themeDAO-ref="themeDAO"/>
+    <bean id="themeAction" class="cn.iliker.mall.control.ThemeAction" p:themeSvc-ref="themeSvc"/>
+    <bean id="aSynNotifyAction" class="cn.iliker.mall.control.ASYNNotify" scope="prototype"
+          p:userAccountSvc-ref="userAccountSvc" p:aliYunAccountSvc-ref="aliYunAccountSvc"
+          p:itOrderSvc-ref="torderManagerSvc"/>
+    <bean id="storeStockSvc" class="cn.iliker.mall.service.impl.StoreStockSvcImpl" p:storeStockDAO-ref="storeStockDAO"/>
+
+    <bean id="storeService" class="cn.iliker.mall.service.impl.StoreServiceImpl" p:orderSvc-ref="torderManagerSvc" p:storeInfoDAO-ref="storeInfoDAO" p:unpackOrderDAO-ref="unpackOrderDAO"/>
+    <bean id="storeAction" class="cn.iliker.mall.control.StoreManagerAction" p:usersvc-ref="userSvc" p:goodsSvc-ref="goodsSvc" p:orderSvc-ref="torderManagerSvc" scope="prototype"
+          p:storeStockSvc-ref="storeStockSvc"
+          p:managerService-ref="storeService"
+          p:testJob-ref="emailJob" p:querySvc-ref="commonQuerySvc" p:aliYunAccountSvc-ref="aliYunAccountSvc"/>
+    <bean id="wxPayAction" class="cn.iliker.mall.control.WxPayAction" scope="prototype"
+          p:userAccountSvc-ref="userAccountSvc" p:aliYunAccountSvc-ref="aliYunAccountSvc"
+          p:itOrderSvc-ref="torderManagerSvc"/>
+    <bean id="wxUserSvc" class="cn.iliker.mall.service.impl.WXUserSvcImpl" p:userDAO-ref="wxUserDAO" p:userinfoSvc-ref="userSvc"/>
+    <bean id="deliverInfoSvc" class="cn.iliker.mall.service.impl.DeliverInfoSvcImpl"
+          p:infoDAO-ref="shippingAddressDAO"/>
+    <bean id="wxTokenService" class="cn.iliker.mall.service.impl.WXTokenServiceImpl" p:wxTokenDAO-ref="wxTokenDAO"
+          p:wxTicketDAO-ref="wxTicketDAO" p:ijswxTotenDAO-ref="jswxTotenDAO"/>
+    <bean id="wxServiceAction" class="cn.iliker.mall.control.WXServiceAction" scope="prototype"
+          p:userinfoSvc-ref="userSvc"
+          p:deliverInfoSvc-ref="deliverInfoSvc" p:wxTokenService-ref="wxTokenService" p:iwxUserService-ref="wxUserSvc"
+          p:menuUrl="classpath:menu.json" p:tordersvc-ref="torderManagerSvc"/>
+
+    <bean id="userAccountSvc" class="cn.iliker.mall.service.impl.UserAccountSvcImpl"
+          p:userAccountDAO-ref="userAccountDAO" p:orderDao-ref="tOrderDAO"/>
+    <bean id="userAccountAction" class="cn.iliker.mall.control.UserAccountAction" scope="prototype"
+          p:userAccountSvc-ref="userAccountSvc" p:querySvc-ref="commonQuerySvc" p:userinfoSvc-ref="userSvc"/>
+
+    <bean id="privilegeManagerSvc" class="cn.iliker.mall.service.impl.PrivilegeManagerSvcImpl"
+          p:privilegeManagerDAO-ref="privilegeManager"/>
+    <bean id="systemInitAction" class="cn.iliker.mall.control.SystemInitAction" scope="prototype"
+          p:privilegeManagerSvc-ref="privilegeManagerSvc" p:managerSvc-ref="adminSvc"/>
+    <!--阿里百川openIM-->
+    <bean id="openIMClient" class="com.taobao.api.DefaultTaobaoClient">
+        <constructor-arg value="${aliserver.url}"/>
+        <constructor-arg value="${openim.appkey}"/>
+        <constructor-arg value="${openim.secret}"/>
+    </bean>
+    <bean id="aliYunAccountSvc" class="cn.iliker.mall.service.impl.AliYunAccountSvc" p:openIMClient-ref="openIMClient"
+          p:smsClient-ref="smsClient" p:signName="${sms.signname}" p:singleTemplate="${sms.singleTemplate}"
+          p:multiTemplate="${sms.multiTemplate}"/>
+    <!--阿里云通信-->
+    <bean id="smsClient" class="com.taobao.api.DefaultTaobaoClient">
+        <constructor-arg value="${aliserver.url}"/>
+        <constructor-arg value="${sms.appkey}"/>
+        <constructor-arg value="${sms.secret}"/>
+    </bean>
+
+</beans>

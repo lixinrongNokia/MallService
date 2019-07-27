@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="store-stock-json" extends="struts-default,json-default">
+        <!--发送门店激活链接-->
+        <action name="enableEmail.*" class="storeAction" method="enableEmail"/>
+        <!--处理激活邮箱-->
+        <action name="enableEmailBack.*" class="storeAction" method="validateEnableBack">
+            <result name="success">/WEB-INF/page/emailEnable_Success.jsp</result>
+            <result name="error">/WEB-INF/page/emailEnable_failure.jsp</result>
+        </action>
+        <!--门店转单确认通知-->
+        <action name="pushConfirm.*" class="storeAction" method="unPackPushConfirm">
+            <result name="success" type="plainText">
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="plainText">
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+
+        <!--门店转单生成通知-->
+        <action name="confirmUnPackBack.*" class="storeAction" method="confirmUnPackBack"/>
+        <!--================门店管理===================-->
+        <!--附近门店-->
+        <action name="getNearStore.*" class="storeAction" method="getNearStore">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--门店注册-->
+        <action name="storeRegister.*" class="storeAction" method="storeRegister">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--更新门店库存-->
+        <action name="updateStoreStock.*" class="storeAction" method="updateStoreStock">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--获取门店库存-->
+        <action name="getStoreStocks.*" class="storeAction" method="getStoreStocks">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--获取门店运营的品牌-->
+        <action name="getStoreRunBrands.*" class="storeAction" method="getStoreRunBrands">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--获取门店账户余额-->
+        <action name="getStoreBalance.*" class="storeAction" method="getStoreBalance">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+
+        <!--门店添加转单-->
+        <action name="addUnPackOrder.*" class="storeAction" method="addUnPackOrder">
+            <result type="redirectAction" name="success">
+                <param name="actionName">pushConfirm.do</param>
+                <param name="unPackOrderInfo">${unPackOrderInfo}</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--门店自提收货客户确认-->
+        <action name="userUnpackConfirmReceived.*" class="storeAction" method="userUnpackConfirmReceived">
+            <result type="redirectAction" name="success">
+                <param name="actionName">confirmUnPackBack.do</param>
+                <param name="confirmBack">${confirmBack}</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--门店自提订单查找-->
+        <action name="parsOrderByIdUnPackView.*" class="storeAction" method="parsOrderByIdUnPackView">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+
+        <!--获取门店转单-->
+        <action name="getStoreUnpackOrder.*" class="storeAction" method="getStoreUnpackOrder">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--根据门店转单号获取订单详情-->
+        <action name="GetUnPackOrderById.*" class="storeAction" method="GetUnPackOrderById">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+    </package>
+</struts>

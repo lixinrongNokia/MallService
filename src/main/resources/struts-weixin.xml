@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="weiXin-json" extends="json-default">
+        <!--微信公众号自定义接口-->
+        <action name="weChatSign.*" class="wxServiceAction" method="weChatSign"/>
+        <!--微信公众号菜单按钮:新品-->
+        <action name="newProduct.*">
+            <result>/wx/index.jsp</result>
+        </action>
+        <!--h5在线商城路径-->
+        <action name="onLineMall.*" class="wxServiceAction" method="wxAccess">
+            <result name="success">/wx/index.jsp</result>
+        </action>
+        <!--初始化微信JSSDK接口权限-->
+        <action name="wxJsSDKInit.*" class="wxServiceAction" method="wxJsSDKInit">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--微信图片接口-->
+        <action name="chooseImage.*" class="wxServiceAction" method="chooseImage">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--请求微信access_token获取opendid-->
+        <action name="getServerProperty.*" class="wxServiceAction" method="getServerProperty">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+            </result>
+        </action>
+        <!--微信自定义菜单创建与删除-->
+        <action name="weixin_*.*" class="wxServiceAction" method="{1}">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+            </result>
+            <allowed-methods>delMenu,createMenu</allowed-methods>
+        </action>
+        <!--添加微信公众号客服账号-->
+        <action name="addKF" class="wxServiceAction" method="addKF">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--拉取微信用户资料-->
+        <action name="getWXUserData.*" class="wxServiceAction" method="getWXUserData">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--检查手机号码是否存在的-->
+        <action name="bindWXCheck.*" class="userAction" method="bindWXCheck">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--用户绑定微信公众号-->
+        <action name="existerUserBind.*" class="wxServiceAction" method="existerUserBind">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--解绑微信-->
+        <action name="unBindWX.*" class="wxServiceAction" method="unBindWX">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--用户绑定微信客户端-->
+        <action name="existsAPPBindWX.*" class="wxServiceAction" method="existsAPPBindWX">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--新用户绑定微信公众号-->
+        <action name="regUserBind.*" class="wxServiceAction" method="regUserBind">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--新用户绑定微信客户端-->
+        <action name="appBindWX.*" class="wxServiceAction" method="appBindWX">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <action name="showqrcode.*" class="wxServiceAction" method="showqrcode">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+    </package>
+</struts>

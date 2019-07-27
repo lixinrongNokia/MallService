@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="adminManagerDAO" class="cn.iliker.mall.dao.daoimpl.AdminmanagerDAO"
+          p:sessionFactory-ref="sessionFactory"/>
+    <bean id="userInfoDAO" class="cn.iliker.mall.dao.daoimpl.UserinfoDAO" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="commentsDAO" class="cn.iliker.mall.dao.daoimpl.CommentsDAO" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="shareDAO" class="cn.iliker.mall.dao.daoimpl.ShareDAO" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="crowdDAO" class="cn.iliker.mall.dao.daoimpl.CrowdDAO" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="goodsDAO" class="cn.iliker.mall.dao.daoimpl.GoodsDAO" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="flashSaleDAO" class="cn.iliker.mall.dao.daoimpl.FlashsaleDAO" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="clothesTypeDAO" class="cn.iliker.mall.dao.daoimpl.ClothestypeDAO" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="apkVersionDAO" class="cn.iliker.mall.dao.daoimpl.ApkVersionDAO" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="tOrderDAO" class="cn.iliker.mall.dao.daoimpl.TOrderDAO" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="orderDetailDAO" class="cn.iliker.mall.dao.daoimpl.OrderdetailDAO" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="userDataDAO" class="cn.iliker.mall.dao.daoimpl.UserdataDAO" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="courierCompanyDAO" class="cn.iliker.mall.dao.daoimpl.CourierCompanyDAO"
+          p:sessionFactory-ref="sessionFactory"/>
+    <bean id="logisticsDAO" class="cn.iliker.mall.dao.daoimpl.LogisticsDAO" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="shippingAddressDAO" class="cn.iliker.mall.dao.daoimpl.ShippingaddressDAO"
+          p:sessionFactory-ref="sessionFactory"/>
+    <bean id="collectionDAO" class="cn.iliker.mall.dao.daoimpl.CollectionDAO" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="brandDAO" class="cn.iliker.mall.dao.daoimpl.BrandDAO" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="transferRecordDAO" class="cn.iliker.mall.dao.daoimpl.TransferRecordDAO"
+          p:sessionFactory-ref="sessionFactory"/>
+    <bean id="transferDetailDAO" class="cn.iliker.mall.dao.daoimpl.TransferDetailDAO"
+          p:sessionFactory-ref="sessionFactory"/>
+    <bean id="transferDAO" class="cn.iliker.mall.dao.daoimpl.TransferDAO" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="themeDAO" class="cn.iliker.mall.dao.daoimpl.ThemeDAO" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="pushitemDAO" class="cn.iliker.mall.dao.daoimpl.PushitemDAO" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="kdniaopushresultDAO" class="cn.iliker.mall.dao.daoimpl.KdniaopushresultDAO"
+          p:sessionFactory-ref="sessionFactory"/>
+    <bean id="dynamicitemDAO" class="cn.iliker.mall.dao.daoimpl.DynamicitemDAO" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="storeInfoDAO" class="cn.iliker.mall.dao.daoimpl.StoreInfoDAO" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="wxTokenDAO" class="cn.iliker.mall.dao.daoimpl.WxTokenDAO" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="wxTicketDAO" class="cn.iliker.mall.dao.daoimpl.WxTicketDAO" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="wxUserDAO" class="cn.iliker.mall.dao.daoimpl.WXUserDAO" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="commonQueryDAO" class="cn.iliker.mall.dao.daoimpl.CommonQueryDAO" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="userAccountDAO" class="cn.iliker.mall.dao.daoimpl.UserAccountDAO" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="searchDAO" class="cn.iliker.mall.dao.daoimpl.SearchDAOImpl" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="jswxTotenDAO" class="cn.iliker.mall.dao.daoimpl.JSWXTotenDAO" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="storeStockDAO" class="cn.iliker.mall.dao.daoimpl.StoreStockDAOImpl" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="reportObjDAO" class="cn.iliker.mall.dao.daoimpl.ReportObjDAOImpl" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="privilegeManager" class="cn.iliker.mall.dao.daoimpl.PrivilegeManager" p:sessionFactory-ref="sessionFactory"/>
+    <bean id="unpackOrderDAO" class="cn.iliker.mall.dao.daoimpl.UnpackOrderDAO" p:sessionFactory-ref="sessionFactory"/>
+</beans>

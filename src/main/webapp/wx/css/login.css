@@ -1,0 +1,95 @@
+﻿@charset "utf-8";
+/* CSS Document */
+.con {
+    display: -webkit-box;
+    width: 75%;
+    height: 3rem;
+    margin: 1rem auto;
+    border: 1px solid #e3e3e3;
+    color: #7e7e7e
+}
+
+.ipt {
+    -webkit-box-flex: 1;
+}
+
+.ipt input {
+    -webkit-box-sizing: border-box;
+    width: 100%;
+    height: 3rem;
+    padding-left: 0.25rem;
+    overflow: hidden
+}
+
+.user, .password {
+    width: 3rem;
+    height: 3rem;
+    border-right: 1px solid #f0f0f0;
+    background-size: 2rem auto
+}
+
+.user {
+    background: #f5f5f5 url(res-apple/loginUser.png) no-repeat center;
+}
+
+.password {
+    background: #f5f5f5 url(res-apple/password.png) no-repeat center;
+}
+
+#auto, #autoFouce {
+    -webkit-box-sizing: border-box;
+    width: 75%;
+    height: 1.5rem;
+    margin: 1rem auto;
+    padding-left: 1.5rem;
+    background-size: 1.25rem auto;
+    line-height: 1.5rem;
+    color: #7e7e7e
+}
+
+#auto {
+    background: url(res-apple/auto.png) no-repeat left center;
+    display: none
+}
+
+#autoFouce {
+    background: url(res-apple/auto_f.png) no-repeat left center;
+}
+
+.btn {
+    width: 75%;
+    height: 2.5rem;
+    margin: 2rem auto;
+    background: #ff2323;
+    font-size: 1.125rem;
+    color: #fff;
+    line-height: 2.5rem;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, .6);
+    cursor: pointer;
+}
+
+.reg {
+    width: 90%;
+    margin: 2rem auto;
+    border: 1px solid #e3e3e3;
+    color: #7e7e7e
+}
+
+.reg li {
+    display: -webkit-box;
+    width: 100%;
+    height: 3rem;
+    border-bottom: 1px solid #e3e3e3;
+    line-height: 3rem;
+}
+
+
+.reg li:last-child {
+    border-bottom: none
+}
+
+.reg li span {
+    width: 5em;
+    margin-right: 0.5em;
+    text-align: right
+}

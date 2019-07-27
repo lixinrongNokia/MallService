@@ -1,0 +1,266 @@
+﻿body {
+    background: #fff url(res-apple/news.png);
+}
+
+/*所有产品*/
+.pro_list {
+    width: 94%;
+    height: 5.25rem;
+    margin: 0.5rem auto;
+    overflow: hidden;
+}
+
+.pro_list img {
+    -webkit-box-sizing: border-box;
+    width: 5.25rem;
+    height: 5.25rem;
+    margin-right: 0.5rem;
+    float: left;
+    -webkit-border-image: url(res-apple/pic_border.gif) 5/5px stretch;
+}
+
+.pro_list p {
+    font-size: 0.875rem;
+    line-height: 1.3em;
+    margin-bottom: 0.5rem;
+    color: #2e2e2e
+}
+
+.pro_list p strong {
+    color: #ff5f0c;
+    margin-right: 1em
+}
+
+.pro_list p span {
+    text-decoration: line-through;
+}
+
+/*产品列表*/
+.top {
+    width: 100%;
+    height: 7.5rem;
+    border-bottom: 1px solid #d7cbb9;
+}
+
+.top img {
+    width: 100%;
+    height: 7.5rem;
+}
+
+.list {
+    width: 94%;
+    height: 4rem;
+    margin: 0.5rem auto 1rem;
+    overflow: hidden
+}
+
+.list img {
+    -webkit-box-sizing: border-box;
+    width: 4rem;
+    height: 4rem;
+    border: 1px solid #bcbcbc;
+    margin-right: 0.5rem;
+    float: left;
+}
+
+.list p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.english {
+    font-size: 0.75rem;
+    color: #e78181;
+    margin-bottom: 0.125rem
+}
+
+.name {
+    color: #e78181;
+    border-bottom: 2px solid #fed4d4;
+    padding-bottom: 0.125rem;
+}
+
+.name span {
+    display: block;
+    float: right;
+    margin-left: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: bold
+}
+
+.jieshao {
+    font-size: 0.75rem;
+    margin-top: 0.25rem
+}
+
+/*产品页*/
+.pro_pic {
+    width: 10.5rem;
+    height: 10.5rem;
+    border: 1px solid #d7cbb9;
+    margin: 1rem auto;
+}
+
+.pro_pic img {
+    width: 10.5rem;
+    height: 10.5rem;
+}
+
+.product p {
+    width: 94%;
+    margin: 0 auto 0.125rem;
+    line-height: 1.3em
+}
+
+.pro_name {
+    color: #eb8080
+}
+
+.pro_js {
+    font-size: 0.75rem;
+    color: #f09f9f
+}
+
+.fz75 {
+    font-size: 0.75rem;
+}
+
+.product p span {
+    width: 5em;
+    text-align: left;
+    display: block;
+    float: left;
+}
+
+.product p strong {
+    font-size: 1rem;
+    color: #df0107;
+    margin-right: 1em
+}
+
+.product p em {
+    color: #df0107;
+}
+
+.more {
+    -webkit-box-sizing: border-box;
+    width: 94%;
+    height: 2rem;
+    padding-left: 2.25rem;
+    font-size: 0.875rem;
+    line-height: 2rem;
+    border-top: 1px solid #d7cbb9;
+    border-bottom: 1px solid #d7cbb9;
+    margin: 0.75rem auto;
+}
+
+.pic {
+    background: url(res-apple/pic_more.png) no-repeat 0.5rem center, url(res-apple/go.png) no-repeat right center;
+    background-size: 1.5rem auto, 1rem auto
+}
+
+.assess {
+    background: url(res-apple/assess.png) no-repeat 0.5rem center, url(res-apple/go.png) no-repeat right center;
+    background-size: 1.5rem auto, 1rem auto
+}
+
+.con1 {
+    width: 94%;
+    height: 1.75rem;
+    line-height: 1.75rem;
+    margin: 0.5rem auto;
+    font-size: 0.75rem;
+}
+
+.con1 span {
+    display: block;
+    float: left;
+    width: 5em;
+}
+
+.ml {
+    height: 1.25rem;
+    padding: 0 0.5rem;
+    line-height: 1.25rem;
+    background: #fff;
+    margin: 0 0 0.5rem 0.5rem;
+    border: 2px solid #df0107;
+    text-align: center;
+}
+
+.num_btn {
+    width: 1.5rem;
+    height: 1.5rem;
+    line-height: 1.25rem;
+    text-align: center;
+    background: #f6f5ea;
+    border: 1px solid #a3a3a3;
+    font-size: 2rem
+}
+
+.con1 input {
+    width: 3rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    background: #f6f5ea;
+    border: 1px solid #a3a3a3;
+    font-size: 1.25rem;
+    margin: 0 0.25rem
+}
+
+.huodong {
+    width: 94%;
+    margin: 0.5rem auto;
+    font-size: 0.75rem;
+    line-height: 1.4em;
+    overflow: hidden;
+}
+
+.more_down {
+    color: #f00
+}
+
+.caozuo {
+    -webkit-box-sizing: border-box;
+    width: 33.333%;
+    height: 3rem;
+    font-size: 0.75rem;
+    line-height: 2rem;
+    overflow: hidden;
+    float: left;
+}
+
+.caozuo img {
+    width: 2rem;
+    height: 2rem;
+    float: left;
+    margin-right: 0.125rem;
+}
+
+/*用户评价*/
+.assess_list li {
+    -webkit-box-sizing: border-box;
+    width: 94%;
+    margin: auto;
+    padding: 0.75rem 0 0;
+    border-bottom: 1px solid #e4e4e4;
+    font-size: 0.875rem;
+    overflow: hidden
+}
+
+.assess_list li p {
+    line-height: 1.3em;
+    margin-bottom: 0.5rem;
+}
+
+.assess_ico {
+    padding-left: 1.25rem;
+    background: url(res-apple/assess_ico.png) no-repeat left center;
+    background-size: 1rem auto;
+}
+
+.down {
+    color: #f00
+}

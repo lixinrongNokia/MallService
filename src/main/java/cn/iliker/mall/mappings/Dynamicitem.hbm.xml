@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="cn.iliker.mall.entity.Dynamicitem" table="Dynamicitem" catalog="afe">
+        <id name="dynamicId" type="java.lang.Integer">
+            <column name="dynamicId"/>
+            <generator class="native"/>
+        </id>
+        <property name="AcceptTime" type="java.lang.String">
+            <column name="AcceptTime" not-null="true" length="20"/>
+        </property>
+        <property name="AcceptStation" type="java.lang.String">
+            <column name="AcceptStation" length="120" not-null="true"/>
+        </property>
+        <property name="Remark" type="java.lang.String">
+            <column name="Remark" length="50"/>
+        </property>
+        <many-to-one name="push_item" class="cn.iliker.mall.entity.PushItem" column="push_item_id" foreign-key="Push_ItemId"/>
+    </class>
+</hibernate-mapping>

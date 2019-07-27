@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="accountManager" extends="default">
+        <!--跳转批量转账页面-->
+        <action name="show_transfer_panel.*">
+            <result>/WEB-INF/page/transfer_panel.jsp</result>
+        </action>
+        <action name="pageLoad_*.*" class="transferAction" method="{1}">
+            <result name="success">/WEB-INF/page/{1}.jsp</result>
+            <result name="error">/WEB-INF/page/{1}.jsp</result>
+            <!--<allowed-methods>successApply,showApply</allowed-methods>-->
+        </action>
+        <action name="load_transfer_panel_content.*">
+            <result>/WEB-INF/page/transfer_panel_content.jsp</result>
+        </action>
+        <action name="transfer_*.*" class="transferAction" method="{1}">
+            <result name="error">/WEB-INF/page/showApply.jsp</result>
+            <!--<allowed-methods>moreOperation,singleOperation</allowed-methods>-->
+        </action>
+    </package>
+    <package name="buy-json" extends="json-default">
+        <!--微信支付统一预下单-->
+        <action name="wxPayPrepayGate.*" class="wxPayAction" method="wxPrepay">
+            <result name="success" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">msg</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+        </action>
+        <!--批量转账异步通知接口-->
+        <action name="aliPayNotify.*" class="transferAction" method="aliPayNotify"/>
+        <!--客户端支付宝订单签名接口-->
+        <action name="mobilePaySign.*" class="aSynNotifyAction" method="createPaySign"/>
+        <!--app支付宝付款异步通知接口-->
+        <action name="mobilePayNotify.*" class="aSynNotifyAction" method="mobilePayNotify"/>
+        <!--支付宝h5支付请求-->
+        <action name="aliPayForJS.*" class="aSynNotifyAction" method="aliPayForJS"/>
+        <!--微信支付付款异步通知接口-->
+        <action name="wxPayNotify.*" class="wxPayAction" method="wxPayNotify"/>
+    </package>
+</struts>
