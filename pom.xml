@@ -11,7 +11,7 @@
 	<description>cn.iliker mall</description>
 	<!--maven打包跳过测试 mvn package -Dmaven.test.skip=true -->
 	<properties>
-		<junit>4.12</junit>
+		<junit>4.13.1</junit>
 		<spring-version>4.3.16.RELEASE</spring-version>
 		<java.version>1.8</java.version>
 	</properties>
